@@ -1,38 +1,44 @@
-<h1>Cats!</h1>
-
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="text-center">
+  <img src="https://media.giphy.com/media/atYI3PHpdlty8/giphy.gif" width="180" />
+  <h1 class="text-center text-danger b">EAT-DAT-BURGER</h1>
+</div>
+<div class="row d-flex mb-2">
+  <div class="col text-right">
+    <ul class="list-group">
+      {{#each burgers}} 
+        {{#unless devoured}}
+          <li class="list-group-item w-50 ml-auto bg-primary text-light d-flex justify-content-between align-content-center">
+            <button class="burger-ready btn btn-outline-light">Devour</button>
+            <div class="mt-auto mb-auto">Name: {{burger_name}}</div>
+          </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
   </div>
-
-  <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+  <div class="col text-left">
+    <ul class="pl-0 list-group">
+      {{#each burgers}}
+        {{#if devoured}}
+          <li
+            class="list-group-item w-50 bg-danger text-light text-light d-flex justify-content-between align-content-center">
+            <div class="mt-auto mb-auto">Name: {{burger_name}}</div>
+            <img src="https://media.giphy.com/media/f4IFAcMkuhl9ZIdx5i/giphy.gif" class="img-fluid" style="width:38px;">
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
   </div>
+</div>
 
-  <button type="submit">Add Cat</button>
+
+
+
+<form class="create-form text-center">
+  <div class="form-group">
+    <textarea id="w3review" name="w3review" rows="2" cols="50">
+    </textarea>
+  </div>
+  <button class="btn btn-danger" type="submit">Submit</button>
+  <p>Enter a burger to eat!</p>
+  <img src="https://media.giphy.com/media/ZaF5ecBGv9np9oX3vH/giphy.gif" width="300px" />
 </form>
