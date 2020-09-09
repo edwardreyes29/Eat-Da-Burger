@@ -33,5 +33,9 @@ Understanding how to work with express-handlebars and also finding out how to re
 ## Demo 
 [heroku-deployment](https://sheltered-earth-16745.herokuapp.com/)
 
-![main](./assets/main.png)
-![budget](./assets/budget.png)
+### Initial Display
+![main](https://raw.githubusercontent.com/edwardreyes29/Eat-Da-Burger/master/assets/main.png)
+### Devour results
+![devour](https://raw.githubusercontent.com/edwardreyes29/Eat-Da-Burger/master/assets/devour.png)
+### When all burgers have been devoured
+![full](https://raw.githubusercontent.com/edwardreyes29/Eat-Da-Burger/master/assets/full.png)
