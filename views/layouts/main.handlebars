@@ -30,30 +30,42 @@
 				$("#full-img").css("display", "none");
 			}
 			$(document).on("click", ".burger-ready", function (event) {
-				console.log($(this).data("burger"));
 				const id = $(this).data("burger");
 				$.ajax({
 					type: 'put',
 					url: `/api/burgers/${id}`,
-				}).done(function(data) {
+				}).done(function (data) {
 					window.location.href = "/";
-				});	
+				});
 			});
 
 			$("#burger-submit").on("click", event => {
 				event.preventDefault();
 				const newBurger = $("#burger-input").val()
 
-				$.post("/api/burgers", {name: newBurger}).done(function(data) {
+				$.post("/api/burgers", { name: newBurger }).done(function (data) {
 					$.ajax({
 						type: 'get',
 						url: "/api/burgers/devoured",
-					}).done(function(data) {
-						console.log(data.count);
+					}).done(function (data) {
+						window.location.href = "/";
 					})
-					window.location.href = "/";
 				});
-			})
+			});
+			$('#burger-input').keypress(function (event) {
+				var keycode = (event.keyCode ? event.keyCode : event.which);
+				if (keycode == '13') {
+					const newBurger = $("#burger-input").val()
+					$.post("/api/burgers", { name: newBurger }).done(function (data) {
+						$.ajax({
+							type: 'get',
+							url: "/api/burgers/devoured",
+						}).done(function (data) {
+							window.location.href = "/";
+						})
+					});
+				}
+			});
 		});
 	</script>
 </body>
