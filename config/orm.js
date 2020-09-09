@@ -25,6 +25,13 @@ const orm = {
             if (err) throw err;
             cb(result);
         });
+    },
+    allDevoured: function(tableInput, colSearch, colValue, cb) {
+        const queryString = "SELECT COUNT(*) AS count FROM ?? WHERE ?? = ?";
+        connection.query(queryString, [tableInput, colSearch, colValue], function(err, result) {
+            if (err) throw err;
+            cb(result);
+        });
     }
 };
 

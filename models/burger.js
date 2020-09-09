@@ -17,6 +17,11 @@ const burger = {
         orm.updateOne("burgers", col1, val1, col2, val2, function(res) {
             cb(res);
         });
+    },
+    allDevoured: function(col, val, cb) {
+        orm.allDevoured("burgers", col, val, function(res) {
+            cb(res);
+        })
     }
 }
 

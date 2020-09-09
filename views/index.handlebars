@@ -4,11 +4,12 @@
 </div>
 <div class="row d-flex mb-2">
   <div class="col text-right">
-    <ul class="list-group">
+    <img id="full-img" src="https://media.giphy.com/media/h8VBtyhWOY9MRSrUOs/giphy.gif" class="img-fluid w-50">
+    <ul id="not-devoured" class="list-group">
       {{#each burgers}} 
         {{#unless devoured}}
           <li class="list-group-item w-50 ml-auto bg-primary text-light d-flex justify-content-between align-content-center">
-            <button class="burger-ready btn btn-outline-light">Devour</button>
+            <button class="burger-ready btn btn-outline-light" data-burger={{id}}>Devour</button>
             <div class="mt-auto mb-auto">Name: {{burger_name}}</div>
           </li>
         {{/unless}}
@@ -16,7 +17,7 @@
     </ul>
   </div>
   <div class="col text-left">
-    <ul class="pl-0 list-group">
+    <ul id="devoured" class="pl-0 list-group">
       {{#each burgers}}
         {{#if devoured}}
           <li
@@ -35,10 +36,10 @@
 
 <form class="create-form text-center">
   <div class="form-group">
-    <textarea id="w3review" name="w3review" rows="2" cols="50">
+    <textarea id="burger-input"  rows="2" cols="50">
     </textarea>
   </div>
-  <button class="btn btn-danger" type="submit">Submit</button>
+  <button id="burger-submit" class="btn btn-danger" type="submit">Submit</button>
   <p>Enter a burger to eat!</p>
   <img src="https://media.giphy.com/media/ZaF5ecBGv9np9oX3vH/giphy.gif" width="300px" />
 </form>
